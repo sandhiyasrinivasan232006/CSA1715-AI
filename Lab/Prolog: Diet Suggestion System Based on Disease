@@ -1,0 +1,13 @@
+diet(diabetes, 'Low sugar foods').
+diet(diabetes, 'Whole grains and vegetables').
+diet(hypertension, 'Low salt foods').
+diet(hypertension, 'Fruits and vegetables').
+diet(anemia, 'Iron-rich foods').
+diet(anemia, 'Green leafy vegetables').
+
+suggest_diet(Disease, Food) :-
+    diet(Disease, Food).
+
+% Queries:
+% ?- suggest_diet(diabetes, Food).
+% ?- suggest_diet(anemia, Food).
