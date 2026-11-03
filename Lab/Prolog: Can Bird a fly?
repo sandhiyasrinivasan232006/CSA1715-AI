@@ -1,0 +1,15 @@
+bird(sparrow).
+bird(parrot).
+bird(penguin).
+bird(ostrich).
+
+cannot_fly(penguin).
+cannot_fly(ostrich).
+
+can_fly(X) :-
+    bird(X),
+    \+ cannot_fly(X).
+
+% Queries:
+% ?- can_fly(sparrow).
+% ?- can_fly(penguin).
