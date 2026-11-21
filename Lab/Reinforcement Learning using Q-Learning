@@ -1,0 +1,42 @@
+import numpy as np
+import random
+
+# Environment with 4 states
+Q = np.zeros((4, 2))
+
+rewards = [
+    [-1, 0],
+    [-1, 0],
+    [-1, 10],
+    [0, 0]
+]
+
+alpha = 0.1
+gamma = 0.9
+
+# Training
+for episode in range(1000):
+
+    state = 0
+
+    while state != 3:
+
+        action = random.randint(0, 1)
+
+        if action == 0:
+            next_state = max(0, state - 1)
+        else:
+            next_state = min(3, state + 1)
+
+        reward = rewards[state][action]
+
+        Q[state][action] += alpha * (
+            reward + gamma * max(Q[next_state]) - Q[state][action]
+        )
+
+        state = next_state
+
+print("Q Table:")
+print(Q)
+
+print("Training Completed")
