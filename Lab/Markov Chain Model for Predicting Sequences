@@ -1,0 +1,24 @@
+import numpy as np
+
+# Transition probability matrix
+P = np.array([
+    [0.7, 0.3],
+    [0.4, 0.6]
+])
+
+# Initial state
+state = 0
+
+states = ["Sunny", "Rainy"]
+
+print("Initial State:", states[state])
+
+# Predict next 5 states
+for i in range(5):
+
+    state = np.random.choice(
+        [0, 1],
+        p=P[state]
+    )
+
+    print("Next State:", states[state])
