@@ -1,0 +1,26 @@
+import nltk
+import random
+
+responses = {
+    "hello": ["Hello!", "Hi!", "How are you?"],
+    "name": ["I am a simple chatbot."],
+    "bye": ["Goodbye!", "Have a nice day!"]
+}
+
+print("Chatbot: Hello! Type bye to exit.")
+
+while True:
+    user = input("You: ").lower()
+
+    if "hello" in user or "hi" in user:
+        print("Chatbot:", random.choice(responses["hello"]))
+
+    elif "name" in user:
+        print("Chatbot:", responses["name"][0])
+
+    elif "bye" in user:
+        print("Chatbot:", responses["bye"][0])
+        break
+
+    else:
+        print("Chatbot: Sorry, I don't understand.")
